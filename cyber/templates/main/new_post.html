@@ -1,0 +1,74 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/new_post.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="new-post">
+        <div data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="2000" class="post-area">
+            <h1>new post</h1>
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    {% if form.title.errors %}
+                        <div class="input-box">
+                            {{ form.title(class="input", placeholder="Enter Post Title" ) }}
+                        </div>
+                        {% for error in form.title.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.title(class="input", placeholder="Enter Post Title" ) }}
+                        </div>
+                    {% endif %}
+                    
+                    {% if form.description.errors %}
+                        <div class="input-box">
+                            {{ form.description(class="input", placeholder="Enter Post Description" ) }}
+                        </div>
+                        {% for error in form.description.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.description(class="input", placeholder="Enter Post Description" ) }}
+                        </div>
+                    {% endif %}
+
+                    {% if form.content.errors %}
+                        <div class="input-box">
+                            {{ form.content(class="input", placeholder="Enter Post Content" ) }}
+                        </div>
+                        {% for error in form.content.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.content(class="input", placeholder="Enter Post Content" ) }}
+                        </div>
+                    {% endif %}
+
+                    {% if form.recaptcha.errors %}
+                        <div class="input-box">
+                            {{ form.recaptcha }}
+                        </div>
+                        {% for error in form.recaptcha.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.recaptcha }}
+                        </div>
+                    {% endif %}
+                </fieldset>
+                <div data-aos="fade-right" data-aos-delay="300" class="input-box">
+                    {{ form.submit(class="submit") }}
+                </div>
+            </form>
+        </div>
+        <img data-aos="zoom-out-left" class="new-post-hero" src="{{ url_for('static', filename='img/new_post.jpg') }}">
+    </section>
+{% endblock %}

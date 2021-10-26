@@ -1,0 +1,153 @@
+
+.tool-hero{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5%;
+}
+
+.tool-hero div{
+    margin-left: 2%;
+}
+
+.tool-hero div > p{
+    line-height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    text-transform: capitalize;
+}
+
+.tool-hero div p a{
+    text-transform: lowercase;
+}
+
+.description,
+.readme{
+    white-space: pre-wrap;
+}
+
+.search-new{
+    position: fixed;
+    top: 14%;
+    left: 10%;
+    border-radius: 10px;
+    width: 40%;
+    background: white;
+    border: 1px solid #201f1f17;
+    padding: 1% 0 0 0;
+    box-shadow: 0px 10px 30px rgba( 57, 56, 61, 0.205);
+    z-index: 3;
+}
+
+.search-new input{
+    border: none;
+    border-radius: 10px;
+    background: #201f1f17;
+    outline: none;
+    margin-left: 10%;
+    width: 80%;
+    height: 40px;
+}
+
+.data-list{
+    align-content: center;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.data-list a{
+    text-transform: capitalize;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    width: 60%;
+    margin-left: 20%;
+}
+
+.main{
+    display: flex;
+    width: 30%;
+    border: 1px solid #201f1f17;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba( 57, 56, 61, 0.205);
+    margin-left: 10%;
+    margin-top: 15%;
+    padding: 5% 5%;
+    flex-direction: row;
+}
+
+.tools{
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-img{
+    position: fixed;
+    top: 20%;
+    right: 5%;
+    margin-left: 5%;
+    height: 400px;
+    width: auto;
+}
+
+.tool img{
+    height: 100px;
+    border-radius: 50%;
+}
+
+.github-mob{
+    display: none;
+}
+
+hr{
+    background-color: rgba( 57, 56, 61, 0.205);
+    border: none;
+    height: 3px;
+}
+
+.tool-hero h3{
+    text-transform: capitalize;
+}
+
+@media (max-width: 769px){
+    .tool-hero .github{
+        display: none;
+    }
+
+    .github-mob{
+        display: flex;
+    }
+
+    .hero-img{
+        position: relative;
+        height: auto;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 10%;
+    }
+
+    .main{
+        margin-left: 5%;
+        margin-top: 45%;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .search-new{
+        left: unset;
+        padding-top: 3%;
+        padding-bottom: 0;
+        position: fixed;
+        top: 12%;
+        width: 90%;
+        margin-left: 5%;
+    }
+    
+    .search-new input{
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .tool-hero img{
+        height: 50px;
+    }
+}

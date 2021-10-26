@@ -1,0 +1,42 @@
+
+{% extends 'admin/master.html' %}
+
+{% block body %}
+    {% if 'admin_token' in session: %}
+        <a class="btn btn-primary btn-block" href="{{ url_for('main.logout_admin') }}">Logout</a>
+        <a class="btn btn-secondary btn-block" href="{{ url_for('main.refresh_posts') }}">Refresh Posts</a>
+        <form action="/ehi/upload" enctype="multipart/form-data" class="card mt-2 bg-light" method="post">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="ehi">Upload Ehi Files</label>
+                    <input type="file" class="form-control" name="ehi" id="ehi">
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+        </form>
+        <form action="/file/upload" enctype="multipart/form-data" class="card mt-2 bg-light" method="post">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="ehi">Upload Special Files</label>
+                    <input type="file" class="form-control" name="ehi" id="ehi">
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+        </form>
+    {% else %}
+        <form action="/3xf8z81HUddaTkyqZBXJm9PG/log" class="card bg-light" method="post">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="email">Enter your email</label>
+                    <input type="email" class="form-control" name="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Enter your password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+    {% endif %}
+{% endblock %}
+

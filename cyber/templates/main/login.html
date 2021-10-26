@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <section class="login">
+        <div data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1000" class="login-area">
+            <h1>login account</h1>
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    {% if form.email.errors %}
+                        <div class="input-box">
+                            {{ form.email(class="input", placeholder="Enter your Email" ) }}
+                        </div>
+                        {% for error in form.email.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.email(class="input", placeholder="Enter your Email" ) }}
+                        </div>
+                    {% endif %}
+
+                    {% if form.password.errors %}
+                        <div class="input-box">
+                            {{ form.password(class="input", placeholder="Enter your password" ) }}
+                        </div>
+                        {% for error in form.password.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.password(class="input", placeholder="Enter your password" ) }}
+                        </div>
+                    {% endif %}
+                    <div class="check-box-main">
+                        {{ form.remember() }}
+                        {{ form.remember.label() }}
+                    </div>
+                </fieldset>
+                <div data-aos="fade-right" data-aos-delay="300" class="input-box">
+                    {{ form.submit(class="submit") }}
+                </div>
+                <a data-aos="fade-right" data-aos-delay="500" class="social-btn" href="{{ url_for('users.google_login') }}">
+                    <img src="{{ url_for('static', filename='img/google.jpg') }}">
+                </a>
+                <a data-aos="fade-right" data-aos-delay="700" class="social-btn" href="{{ url_for('users.github_login') }}">
+                    <img src="{{ url_for('static', filename='img/github.jpg') }}">
+                </a>
+            </form>
+            <p>Forgot Password? <a href="{{ url_for('users.reset_password_req') }}">reset now</a></p>
+            <p>Not a member? <a href="{{ url_for('users.register') }}">register now</a></p>
+        </div>
+        <div class="mob-reg">
+            <p>Forgot Password? <a href="{{ url_for('users.reset_password_req') }}">reset now</a></p>
+            <p>Not a member? <a href="{{ url_for('users.register') }}">register now</a></p>
+        </div>
+        <div class="login-img-area">
+            <img src="{{ url_for('static', filename='img/login.jpg') }}">
+        </div>
+    </section>
+
+{% endblock %}

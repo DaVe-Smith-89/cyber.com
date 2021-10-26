@@ -1,0 +1,67 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="account">
+        <form data-aos="fade-down" data-aos-delay="200" action="" method="POST">
+            <div class="form-hero">
+                {% if current_user.user_img == 'user.jpg' %}
+                    <img src="{{ url_for('static', filename='img/user.jpg') }}">
+                {% else %}
+                     <img src="{{ current_user.user_img }}">
+                {% endif %}
+                <div class="detail">
+                    <h3>Hey,</h3>
+                    <h2> {{ current_user.username }} </h2>
+                </div>
+            </div>
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <div class="input-box">
+                    {% if form.username.errors %}
+                        {{ form.username.label(class='label') }}
+                        {{ form.username(class='input', placeholder='Enter your Name') }}
+                        {% for error in form.username.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.username.label(class='label') }}
+                        {{ form.username(class='input', placeholder='Enter your Name') }}
+                    {% endif %}
+                </div>
+                <div class="input-box">
+                    {% if form.email.errors %}
+                        {{ form.email.label(class='label') }}
+                        {{ form.email(class='input', placeholder='Enter your Email') }}
+                        {% for error in form.email.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.email.label(class='label') }}
+                        {{ form.email(class='input', placeholder='Enter your Email') }}
+                    {% endif %}
+                </div>
+                <div class="input-box">
+                    {% if form.user_img.errors %}
+                        {{ form.user_img.label(class='label') }}
+                        {{ form.user_img(class='input', placeholder='Enter your Profile Picture url') }}
+                        {% for error in form.user_img.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.user_img.label(class='label') }}
+                        {{ form.user_img(class='input', placeholder='Enter your Profile Picture url') }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            {{ form.submit(class='submit') }}
+        </form>
+        <div data-aos="zoom-out" data-aos-delay="200">
+            <img src="{{ url_for('static', filename='img/account.jpg') }}">
+        </div>
+    </div>
+{% endblock %}

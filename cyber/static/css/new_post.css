@@ -1,0 +1,96 @@
+
+.post-area h1{
+    text-transform: capitalize;
+    text-align: center;
+}
+
+fieldset{
+    border: none;
+}
+
+.new-post{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-top: 7%;
+    margin-left: 10%;
+}
+
+.post-area{
+    padding: 5% 5%;
+    border: 1px solid #201f1f17;
+    border-radius: 4%;
+    box-shadow: 0px 10px 30px rgba( 57, 56, 61, 0.205);
+}
+
+.form-error{
+    color: red;
+    line-height: 50%;
+    font-size: 80%;
+    text-transform: capitalize
+}
+
+.input-box{
+    width: 100%;
+    height: 45px;
+    margin-top: 25px;
+}
+
+.input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 16px;
+    border: none;
+}
+
+.new-post-hero{
+    margin-left: 10%;
+}
+
+.submit{
+    margin-top: 4%;
+    font-family: roboto;
+    padding: 8px 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 100%;
+    transition: all 1s ease;
+    background: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    color: white;
+}
+
+.submit:hover{
+    background: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+@media (max-width: 769px){
+    .new-post{
+        flex-direction: column;
+        margin-top: 20%;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 0%;
+    }
+
+    .input-box{
+        width: 80%;
+    }
+
+    fieldset{
+        margin: 0%;
+        padding: 0%;
+    }
+
+    .new-post-hero{
+        margin-top: 10%;
+    }
+
+    .submit{
+        width: 120%;
+        font-size: 120%;
+    }
+}

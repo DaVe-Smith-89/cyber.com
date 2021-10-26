@@ -1,0 +1,36 @@
+
+.error-404{
+    margin-top: 7%;
+    margin-left: 20%;
+    width: 60%;
+}
+
+.error-403{
+    margin-left: 20%;
+    width: 60%;
+}
+
+.error-500{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+@media (max-width: 769px){
+    .error-404{
+        margin-top: 25%;
+        margin-bottom: 5%;
+    }
+
+    .error-403{
+        margin-top: 25%;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .error-500{
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 25%;
+    }
+}

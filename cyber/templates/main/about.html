@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block about %} href="{{ url_for('main.home') }}"{% endblock %}
+
+{% block content %}
+
+    <section class="hero">
+        <div data-aos="fade-right" data-aos-delay="200" class="detail">
+            <h1>SL CYBER WARRIORS</h1>
+            <h6>The best Sri lankan Community of programmers, web developers, app developers, & free internet providers and the team which have largest database of team  members & followers.</h6>
+            <a class="btn-primary">subscribe us</a>
+            <a class="btn-secondary">Join us</a>
+        </div>
+        <div data-aos="zoom-in">
+            <img src="{{ url_for('static', filename='img/hero.jpg')}}" class="hero-img">
+        </div>
+    </section>
+    <div class="clear"></div>
+    <section class="about">
+        <img src="{{ url_for('static', filename='img/about-area.jpg')}}" class="about-img">
+        <div data-aos="fade-left" data-aos-delay="500" class="about-content">
+            <h1>a description about us</h1>
+            <p>
+                We are going on a long journey since 2020/10/02 untill today.We found success having passed many troubles & barriers and the courage brought us to the targets .So today we have the best Srilankan team of best gang of people, who found the real taste of the technology.
+                This is the best place for upcoming technology lovers for past ,today and also for future.
+                Come on... join with us & let's make a real change in the system...
+            </p>
+            <a href="{{ url_for('main.file_download', file_id=5) }}" class="btn-primary">Download app</a>
+        </div>
+    </section>
+
+    {% block js %}
+        <script src="{{ url_for('static', filename='js/about.js') }}"></script>
+    {% endblock %}
+
+{% endblock %}
+

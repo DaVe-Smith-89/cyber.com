@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Dave Smith">
+    {% if social %}
+        <meta property="og:title" content="{% if title %}{{ title.capitalize() }} - {% endif %}SL CYBER WARRIORS">
+        <meta property="og:description" content="{{ social['decsription'] }}">
+        {% if social['image'] %}<meta property="og:image" content="{{ social['image'] }}">{% else %}<meta property="og:image" content="{{ url_for('static', filename='img/logo.jpg') }}">{% endif %}
+        <meta name="description" content="{{ social['decsription'] }}">
+    {% else %}
+        <meta property="og:title" content="{% if title %}{{ title.capitalize() }} - {% endif %}SL CYBER WARRIORS">
+        <meta property="og:description" content="The best Sri lankan Community of programmers, web developers, app developers, & free internet providers and the team which have largest database of team  members & followers.">
+        <meta property="og:image" content="{{ url_for('static', filename='img/logo.jpg') }}">
+        <meta property="og:url" content="https://slcyberwarriors.com{{ url_for(request.endpoint) }}">
+        <meta name="description" content="The best Sri lankan Community of programmers, web developers, app developers, & free internet providers and the team which have largest database of team  members & followers.">
+    {% endif %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo.jpg') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block style %}
+
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title.capitalize() }} - {% endif %}SL CYBER WARRIORS</title>
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <div class="logo" style="color: white; !important"><a>SL CYBER WARRIORS</a></div>
+            {% if current_user.is_authenticated %}
+                <style>
+                    .profile-mob{
+                        margin-left: 17%;
+                        margin-bottom: 2%;
+                    }
+                </style>
+                <a href="{{ url_for('users.account') }}" class="profile-mob">
+                    {% if current_user.user_img == 'user.jpg' %}
+                        <img src="{{ url_for('static', filename='img/user.jpg') }}">
+                    {% else %}
+                        <img src="{{ current_user.user_img }}">
+                    {% endif %}
+                </a>
+            {% endif %}
+            <button id="togle"><i class="fas fa-bars fa-lg"></i></button>
+            <div data-aos="fade-left" class="nav-bar">
+                <ul {% if current_user.is_authenticated %} style="margin-left: 35%;" {% endif %}>
+                    <li><a href="{{ url_for('main.home') }}">home</a></li>
+                    <li><a href="{{ url_for('main.about') }}" id="about">about us</a></li>
+                    <li><a href="{{ url_for('main.services') }}">services</a></li>
+                    {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('users.logout') }}">logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('users.login') }}">login</a></li>
+                    {% endif %}
+                    <li><a href="https://davesmith.ml">developper</a></li>
+                    <li>
+                        {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('users.account') }}" class="profile">
+                                {% if current_user.user_img == 'user.jpg' %}
+                                    <img src="{{ url_for('static', filename='img/user.jpg') }}">
+                                {% else %}
+                                    <img src="{{ current_user.user_img }}">
+                                {% endif %}
+                            </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>        
+        </nav>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for type, message in messages %}
+                {% if type %}
+                <div data-aos="fade-right" class="{{ type }}">
+                    <h4><i class="fas fa-check-circle fa-lg"></i> Success..!</h4>
+                    <button class="btn-ex">close</button>
+                    <hr>
+                    <p>{{ message }}</p>
+                </div>
+                {% else %}
+                <div data-aos="fade-right" class="alert-box-warning">
+                    <h4><i class="fas fa-exclamation-circle fa-lg"></i></i> Alert!!!</h4>
+                    <button class="btn-ex">close</button>
+                    <hr>
+                    <p>{{ message }}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% block content %}
+
+    {% endblock %}
+    <footer class="ftr">
+        <div class="ftr-main">
+            <div class="navigations">
+                <ul>
+                    <li><a href="{{ url_for('main.home') }}">home</a></li>
+                    <li><a href="{{ url_for('main.lessons') }}">lessons</a></li>
+                    <li><a href="{{ url_for('main.tools') }}">tools</a></li>
+                    <li><a href="{{ url_for('users.register') }}">register</a></li>
+                    <li><a href="https://davesmith.ml/contact">contact developer</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                <ul>
+                    <li><a href="https://www.youtube.com/channel/UCOC4YlK-7mb5jIbCRcuijvQ"><i class="fab fa-youtube"></i>&#160&#160youtube</a></li>
+                    <li><a href="https://www.facebook.com/groups/424580708746052/"><i class="fab fa-facebook"></i>&#160&#160facebook</a></li>
+                    <li><a href="https://t.me/By_sstp"><i class="fab fa-telegram"></i>&#160&#160telegram</a></li>
+                    <li><a href="https://github.com/DaVe-Smith-89"><i class="fab fa-github"></i>&#160&#160github&#160&#160(&#160dave smith&#160)</a></li>
+                    <li><a href="https://github.com/John-kener"><i class="fab fa-github"></i>&#160&#160github&#160&#160(&#160john kener&#160)</a></li>
+                    <li><a href="https://github.com/VPseeker"><i class="fab fa-github"></i>&#160&#160github&#160&#160(&#160visal perera&#160)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>all rights reserved 2020-<script>document.write(new Date().getFullYear())</script> @SL CYBER WARRIORS &copy;</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/jquary3.6.0.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+    {% block js %}
+
+    {% endblock %}
+
+</body>
+</html>

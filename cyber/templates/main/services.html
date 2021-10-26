@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="service-hero">
+            <div data-aos="fade-right" class="detail">
+                <h1>our services</h1>
+                <p>you can enjoy these for free.</p>
+                <a data-aos="fade-right" data-aos-delay="200" href="https://www.youtube.com/channel/UCOC4YlK-7mb5jIbCRcuijvQ" class="btn-primary">subscribe us</a>
+                <a data-aos="fade-right" data-aos-delay="400" href="https://t.me/By_sstp" class="btn-secondary">Join us</a>
+            </div>
+            <img data-aos="zoom-in-down" data-aos-delay="200" src="{{ url_for('static', filename='img/service.jpg') }}" alt="">
+        </div>
+        <div class="menu">
+            <a href="{{ url_for('posts.posts') }}">
+                <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" class="nav-area post-nav">
+                    <h1>posts</h1>
+                    <p>
+                        these are posts written by users.
+                        this will give you knowledge
+                    </p>
+                </div>
+            </a>
+            <a href="{{ url_for('main.lessons') }}">
+                <div data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000" class="nav-area lesson-nav">
+                    <h1>our lessons</h1>
+                    <p>
+                        a collection of lessons we do.
+                    </p>
+                </div>
+            </a>
+            <a href="{{ url_for('main.tools') }}">
+                <div data-aos="fade-right" data-aos-delay="600" data-aos-duration="1000" class="nav-area tool-nav">
+                    <h1>Termux tools</h1>
+                    <p>
+                        a collection of termux tools
+                    </p>
+                </div>
+            </a>
+            <a href="{{ url_for('EHi.ehi') }}">
+                <div data-aos="fade-right" data-aos-delay="800" data-aos-duration="1000" class="nav-area ehi-nav">
+                    <h1>Ehi files</h1>
+                    <p>
+                        this is a file type design to provide free internet access.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </section>
+{% endblock %}
+

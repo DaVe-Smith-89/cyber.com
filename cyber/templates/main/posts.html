@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{% block  style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/posts.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="search-new">
+        <input type="text" placeholder=" Search Post" class="search-box">
+        <a href="{{ url_for('posts.new_post') }}" class="btn-primary">new post</a>
+        <p class="data-list"></p>
+    </div>
+    <section class="posts">
+        {% if posts %}
+            {% for post in posts %}
+                <a class="post-a" href="{{ url_for('posts.post', post_id=post.id) }}">
+                    <div data-aos="zoom-out-up" data-aos-duration="1000" class="post">
+                        <div class="user-img">
+                            {% if post.author.user_img == 'user.jpg' %}
+                                <img src="{{ url_for('static', filename='img/user.jpg') }}">
+                            {% else %}
+                                <img src="{{ post.author.user_img }}">
+                            {% endif %}
+                        </div>
+                        <div class="details">
+                            <h3 class="post-title">
+                                {{ post.title }}
+                            </h3>
+                            <p> author: {{ post.author.username }}</p>
+                            <p> posted: {{ post.date_posted.strftime('%Y-%m-%d') }}</p>
+                            <p class="desc">{{ post.description[:27] }}...</p>
+                        </div>
+                    </div>
+                </a>
+                {% if post.author == current_user %}
+                    <a class="delete-post btn-delete" href="{{ url_for('posts.delete_post', post_id=post.id) }}">delete post</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/posts.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lessons.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="search-new">
+        <input type="text" placeholder=" Search Vedio" class="search-box">
+        <p class="data-list"></p>
+    </div>
+    {% if lessons %}
+        <section class="posts-area">
+            {% for lesson in lessons %}
+                <a href="{{ url_for('main.lesson', lesson_id=lesson.id) }}" class="lesson">
+                    <div data-aos="fade-up">
+                        <h3>{{ lesson.title }}</h3>
+                        <p>{{ lesson.description[:200] }}...</p>
+                        {% if lesson.source == 'youtube' %}
+                            <iframe src="https://www.youtube.com/embed/{{ lesson.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        {% else %}
+                            <iframe src="{{ lesson.url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        {% endif %}
+                    </div>
+                </a>
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/lessons.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tool.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="search-new">
+        <input type="text" placeholder=" Search Tool" class="search-box">
+        <p class="data-list"></p>
+    </div>
+    <section data-aos="fade-up" class="main">
+        <div class="tool">
+            <div class="tool-hero">
+                {% if tool.tool_img == 'user.jpg' %}
+                    <img data-aos="fade-right" data-aos-delay="400" src="{{ url_for('static', filename='img/user.jpg') }}">
+                {% else %}
+                    <img data-aos="fade-right" data-aos-delay="400" src="{{ tool.tool_img }}">
+                {% endif %}
+                <div data-aos="fade-right" data-aos-delay="700">
+                    <h3>{{ tool.title }}</h3>
+                    <p> author: {{ tool.author }}</p>
+                    <p class="github"> github: <a href="{{ tool.github }}">{{ tool.github }}</a></p>
+                </div>
+            </div>
+            <hr>
+            <p class="github-mob"> github: <a href="{{ tool.github }}">{{ tool.github }}</a></p>
+            <p class="description">{{ tool.description }}</p>
+            <hr>
+            <p class="readme">{{ tool.readme }}</p>
+        </div>
+    </section>
+    <img class="hero-img" src="{{ url_for('static', filename='img/tools.jpg') }}">
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/tools.js') }}"></script>
+{% endblock %}

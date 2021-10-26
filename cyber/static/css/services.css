@@ -1,0 +1,168 @@
+
+.btn-primary{
+    font-family: roboto;
+    padding: 8px 15px;
+    line-height: 400%;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 1s ease;
+    background: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    color: white;
+}
+
+.btn-secondary{
+    font-family: roboto;
+    padding: 8px 15px;
+    transition: all 1s ease;
+    border-radius: 4px;
+    border: 1px solid linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    text-decoration: none;
+    background: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-primary:hover{
+    background: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+.btn-secondary:hover{
+    background: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    -webkit-text-fill-color: white;
+    cursor: pointer;
+}
+
+.menu{
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
+.nav-area{
+    align-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    border-radius: 4%;
+    padding: 5% 10%;
+    margin: 10px;
+    width: 300px;
+    height: 200px;
+    transition: all .5s ease;
+}
+
+.nav-area:hover{
+    border: 1px solid #201f1f17;
+    box-shadow: 0px 10px 30px rgba( 57, 56, 61, 0.205);
+}
+
+.menu a{
+    color: white;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.post-nav{
+    background-image: url('../img/posts.jpg');
+}
+
+.lesson-nav{
+    background-image: url('../img/lessons.jpg');
+}
+
+.tool-nav{
+    background-position: center;
+    background-size: 300%;
+    background-image: url('../img/tools.png');
+}
+
+.ehi-nav{
+    background-image: url('../img/vpn.jpg');
+}
+
+.service-hero{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.service-hero img{
+    width: 300px;
+    margin-left: 20%;
+    float: right;
+}
+
+.service-hero .detail{
+    text-transform: capitalize;
+    float: left;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
+.menu div, .menu a{
+    width: 250px;
+    margin: 0 3%;
+}
+
+@media (max-width: 768px){
+    section{
+        margin: 0%;
+        padding: 0%;
+        width: 100%;
+    }
+
+    .menu{
+        flex-direction: column;
+        width: 100%;
+        column-width: 50%;
+        margin-top: 20%;
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .menu a{
+        width: 100%;
+        margin-top: 4%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .menu div{
+        width: auto;
+    }
+
+    .service-hero{
+        flex-direction: column;
+    }
+
+    .service-hero img{
+        width: 90%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .service-hero .detail{
+        float: none;
+        align-content: center;
+        margin: 0;
+    }
+
+    .service-hero .detail{
+        margin-top: 20%;
+    }
+
+    .service-hero a{
+        display: none;
+    }
+}
+
+
+

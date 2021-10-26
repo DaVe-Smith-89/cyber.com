@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="register">
+        <div class="register-img-area">
+            <img src="{{ url_for('static', filename='img/register.jpg') }}">
+        </div>
+        <div data-aos="zoom-in-down" data-aos-duration="1000" class="register-area">
+            <h1>create account</h1>
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    {% if form.username.errors %}
+                        <div class="input-box">
+                            {{ form.username(class="input", placeholder="Enter your Name" ) }}
+                        </div>
+                        {% for error in form.username.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.username(class="input", placeholder="Enter your Name" ) }}
+                        </div>
+                    {% endif %}
+
+                    {% if form.email.errors %}
+                        <div class="input-box">
+                            {{ form.email(class="input", placeholder="Enter your Email" ) }}
+                        </div>
+                        {% for error in form.email.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.email(class="input", placeholder="Enter your Email" ) }}
+                        </div>
+                    {% endif %}
+
+                    {% if form.password.errors %}
+                        <div class="input-box">
+                            {{ form.password(class="input", placeholder="Enter your Password" ) }}
+                        </div>
+                        {% for error in form.password.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.password(class="input", placeholder="Enter your Password" ) }}
+                        </div>
+                    {% endif %}
+                    
+                    {% if form.confirm_password.errors %}
+                        <div class="input-box">
+                            {{ form.confirm_password(class="input", placeholder="Re Enter your Password" ) }}
+                        </div>
+                        {% for error in form.confirm_password.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="input-box">
+                            {{ form.confirm_password(class="input", placeholder="Re Enter your Password" ) }}
+                        </div>
+                    {% endif %}
+                    
+                    {% if form.recaptcha.errors %}
+                        <div class="">
+                            {{ form.recaptcha }}
+                        </div>
+                        {% for error in form.recaptcha.errors %}
+                            <span class="form-error"> {{ error }} </span>
+                        {% endfor %}
+                    {% else %}
+                        <div class="">
+                            {{ form.recaptcha }}
+                        </div>
+                    {% endif %}
+                </fieldset>
+                <div class="">
+                    {{ form.submit(class="submit") }}
+                </div>
+            </form>
+            <p>allready have an account? <a href="{{ url_for('users.login') }}">login now</a></p>
+        </div>
+        <p class="mob-log">allready have an account? <a href="{{ url_for('users.login') }}">login now</a></p>
+    </section>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

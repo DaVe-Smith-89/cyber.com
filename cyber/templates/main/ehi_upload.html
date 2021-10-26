@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="login" style="align-content: center;">
+        <div data-aos="zoom-in-down" data-aos-delay="100" class="login-area">
+            <h1>login account</h1>
+            <form action="" enctype="multipart/form-data" method="POST">
+                <input type="file" name="ehi" id="ehi">
+                <button type="submit">uplaod-ehi</button>
+            </form>
+        </div>
+        <div class="login-img-area">
+            <img src="{{ url_for('static', filename='img/login.jpg') }}">
+        </div>
+    </section>
+{% endblock %}

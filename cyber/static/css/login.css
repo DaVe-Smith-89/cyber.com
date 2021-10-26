@@ -1,0 +1,148 @@
+
+fieldset{
+    border: none;
+}
+
+.social-btn{
+    align-content: center;
+    display: block;
+}
+
+.social-btn img{
+    image-resolution: from-image;
+    width: 250px;
+}
+
+.check-box-main{
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+.form-error{
+    color: red;
+    line-height: 50%;
+    font-size: 80%;
+    text-transform: capitalize
+}
+
+.login{
+    display: flex;
+    margin: 7% 0% 0% 5%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.login-img-area{
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+.login-area{
+    float: left;
+    border: 1px solid #201f1f17;
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 4%;
+    box-shadow: 0px 10px 30px rgba( 57, 56, 61, 0.205);
+}
+
+.login h1{
+    text-align: center;
+    text-transform: capitalize;
+    font-family: roboto;
+}
+
+.login-area{
+    padding: 5% 10% 0% 10%;
+    align-content: center;
+}
+
+.input-box{
+    width: 120%;
+    height: 45px;
+    margin-top: 25px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 16px;
+    border: none;
+}
+
+.submit{
+    font-family: roboto;
+    padding: 8px 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 1s ease;
+    background: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    color: white;
+}
+
+.submit:hover{
+    background: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+.login-area p{
+    text-transform: capitalize;
+    margin-top: 4%;
+    cursor: pointer;
+}
+
+.mob-reg{
+    display: none;
+}
+
+@media (max-width: 769px){
+    .login{
+        flex-direction: column;
+    }
+
+    .login-area{
+        margin: 20% 0% 10% 2%;
+        width: 70%;
+        padding: 5% 10% 10% 10%;
+        float: none;
+    }
+
+    .input-box{
+        width: 100%;
+    }
+
+    .login-area fieldset{
+        border: none;
+    }
+
+    .login-img-area{
+        display: none;
+    }
+
+    .login h1{
+        font-size: 200%;
+    }
+
+    .submit{
+        font-size: 200%;
+    }
+
+    .login-area p{
+        display: none;
+    }
+
+    .mob-reg{
+        text-transform: capitalize;
+        display: block;
+        text-align: center;
+    }
+}

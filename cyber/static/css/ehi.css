@@ -1,0 +1,93 @@
+
+.hero{
+    position: fixed;
+    top: 10%;
+    left: 5%;
+}
+
+.hero p{
+    text-transform: capitalize;
+    margin-left: 7%;
+}
+
+.hero-img{
+    width: 40%;
+}
+
+.ehi-area{
+    margin-top: 7%;
+    margin-left: 50%;
+}
+
+.ehi{
+    width: 80%;
+    padding-right: 0%;
+    flex-direction: row;
+    border: 1px solid #201f1f17;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgba( 57, 56, 61, 0.205);
+    margin: 4%;
+    padding: 4% 4%;
+}
+
+.ehi-downlod{
+    position: absolute;
+    right: 2%;
+    margin-left: 0%;
+    font-family: roboto;
+    padding: 8px 15px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    text-transform: capitalize;
+    transition: all 1s ease;
+    background: #5cb85c;
+    color: white;
+}
+
+.ehi-downlod:hover{
+    background: linear-gradient(90deg, #4458dc 0%, #854fee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+@media (max-width: 769px){
+    .pc{
+        display: none;
+    }
+
+    .hero{
+        margin-left: 5%;
+        margin-top: 5%;
+        width: 90%;
+        position: relative;
+    }
+
+    .hero p{
+        margin-left: 0%;
+    }
+
+    .hero-img{
+        margin-top: 10%;
+        width: 90%;
+    }
+
+    .ehi-area{
+        margin-left: unset;
+        width: 100%;
+    }
+
+    .ehi-downlod{
+        width: 30%;
+        right: 5%;
+        top: 15%;
+    }
+
+    .ehi{
+        margin-right: 0%;
+        margin-left: 5%;
+        width: 80%;
+    }
+}

@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ehi.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="hero">
+        <img  class="hero-img" src="{{ url_for('static', filename='img/ehi.jpg') }}">
+        <p class="pc"> config by visal perera @cyber Ehi unit</p>
+    </div>
+    <section class="ehi-area">
+        {% if ehifiles %}
+            {% for ehi in ehifiles %}
+                <div data-aos="fade-right" data-aos-duration="1000" class="ehi">
+                    {{ ehi.name }}
+                    <a class="ehi-downlod" href="{{ url_for('EHi.ehi_download', file_id=ehi.id) }}">download</a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </section>
+{% endblock %}
