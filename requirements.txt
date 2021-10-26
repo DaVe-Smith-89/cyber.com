@@ -47,4 +47,3 @@ WTForms==2.3.3
 django
 django-heroku
 PyMySQL==1.0.2
-requests
