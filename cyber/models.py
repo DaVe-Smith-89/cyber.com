@@ -103,7 +103,7 @@ class adminModelView(ModelView):
         if current_user.is_authenticated:
             if current_user.email in admins:
                 if 'admin_token' in session:
-                    if bcrypt.check_password_hash(session['admin_token'], 'kariponnaya'):
+                    if bcrypt.check_password_hash(session['admin_token'], ''):
                         return True
 
     def inaccessible_callback(self, name, **kwargs):
@@ -114,7 +114,7 @@ class userModelView(ModelView):
         if current_user.is_authenticated:
             if current_user.email in admins:
                 if 'admin_token' in session:
-                    if bcrypt.check_password_hash(session['admin_token'], 'kariponnaya'):
+                    if bcrypt.check_password_hash(session['admin_token'], ''):
                         return True
 
     def inaccessible_callback(self, name, **kwargs):
@@ -131,7 +131,7 @@ class fileModelView(ModelView):
         if current_user.is_authenticated:
             if current_user.email in admins:
                 if 'admin_token' in session:
-                    if bcrypt.check_password_hash(session['admin_token'], 'kariponnaya'):
+                    if bcrypt.check_password_hash(session['admin_token'], ''):
                         return True
 
     def inaccessible_callback(self, name, **kwargs):
